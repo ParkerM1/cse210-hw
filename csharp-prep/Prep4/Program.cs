@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<int> guess_nums = new List<int>();
+        var guess_nums = new List<int>();
         int guess_num = 1;
         while (guess_num != 0)
         {
@@ -21,7 +21,7 @@ class Program
         Console.WriteLine($"The sum is {sum}");
 
         int len = (guess_nums.Count);
-        int avg = sum / len;
+        float avg = (float) sum / (float) len;
         Console.WriteLine($"the average is {avg}");
 
         int max = guess_nums[0];
