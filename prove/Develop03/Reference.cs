@@ -3,29 +3,29 @@ class Reference {
    
     private string _book;
 
-    private int _start_verse;
+    private int _startVerse;
 
-    private int _end_verse;
+    private int _endVerse;
 
     public Reference (string chapter, string book, int start_verse){
         _chapter = chapter;
         _book = book;
-        _start_verse = start_verse;
+        _startVerse = start_verse;
     }
 
     public Reference (string chapter, string book, int start_verse, int end_verse){
         _chapter = chapter;
         _book = book;
-        _start_verse = start_verse;
-        _end_verse = end_verse;
+        _startVerse = start_verse;
+        _endVerse = end_verse;
     }
 
     public void Display(){
-        if (_end_verse == 0){
-            Console.WriteLine($"{_book} {_chapter}:{_start_verse}");
+        if (_endVerse == 0){
+            Console.WriteLine($"{_book} {_chapter}:{_startVerse}");
         } 
         else{
-            Console.WriteLine($"{_book} {_chapter}:{_start_verse}-{_end_verse}");
+            Console.WriteLine($"{_book} {_chapter}:{_startVerse}-{_endVerse}");
         }
     }
 }
