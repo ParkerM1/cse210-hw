@@ -4,38 +4,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        var person_one = new Person("layne", "moseley");
-        var person_two = new Person("David", "Hasselhoff");
-        person_one.breathe();
-        person_one.talk();
-        person_two.talk();
+        
+}
+}
+
+class Person{
+    protected string _name;
+
+    public Person(string name){
+        _name = name;
     }
 }
 
-class Person {
-    //attributes
-    string firstname;
-    string lastname;
+class BYUI_Person: Person{
+    protected string _iNumber;
 
-    // construcotor
-    public Person(string fn, string ln) {
-        firstname = fn;
-        lastname = ln;
+    public BYUI_Person(string name, string iNumber): base(name){
+        _iNumber= iNumber;
     }
+}
 
-    // behavoirs
-    public void breathe() {
-        Console.WriteLine("breathing");
-    }
-    public void walk() {
-        Console.WriteLine("walking");
-    }
+class Student: BYUI_Person {
+   private string _major;
 
-    public void talk() {
-        Console.WriteLine($"hi, my name is {full_name()}");
-    }
+   public Student(string name, string iNumber, string major): base(name, iNumber){
+    _major= major;
+   }
+}
 
-    public string full_name(){
-        return firstname + "" + lastname;
-    }
+class Teacher: BYUI_Person{
+    private string _department;
+
+    public Teacher(string name, string iNumber, string department): base(name, iNumber){
+    _department = department;
+   }
 }
