@@ -4,38 +4,52 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-}
+        var hourly = new HourlyEmployee(1000, "elon musk", 14);
+        var salary = new SalaryEmployee(90000, "robert oppenheimer", 14);
+
+        var employees = new List<Employee> {hourly, salary};
+        foreach (var employee in employees){
+            Console.WriteLine(employee._name);
+            Console.WriteLine(employee.PayPeroidWages());
+        }
+    }
 }
 
-class Person{
-    protected string _name;
+class Employee{
+    public string _name;
 
-    public Person(string name){
+    protected double _payPeroidLength;
+
+    public Employee(string name, int payPeroidLength){
         _name = name;
+        _payPeroidLength = payPeroidLength;
+    }
+
+    virtual public double PayPeroidWages(){
+        return 0;
+    }    
+}
+
+class HourlyEmployee: Employee{
+
+    double _rate;
+    
+    public override double PayPeroidWages(){
+        return _rate * 8 * _payPeroidLength;
+    }
+
+    public HourlyEmployee(double rate, string name, int payPeroidLength):base (name, payPeroidLength){
+        _rate = rate;
     }
 }
 
-class BYUI_Person: Person{
-    protected string _iNumber;
+class SalaryEmployee: Employee{
+    double _annualRate;
 
-    public BYUI_Person(string name, string iNumber): base(name){
-        _iNumber= iNumber;
+    override public double PayPeroidWages(){
+        return (_payPeroidLength / 365.0) * _annualRate;
     }
-}
-
-class Student: BYUI_Person {
-   private string _major;
-
-   public Student(string name, string iNumber, string major): base(name, iNumber){
-    _major= major;
-   }
-}
-
-class Teacher: BYUI_Person{
-    private string _department;
-
-    public Teacher(string name, string iNumber, string department): base(name, iNumber){
-    _department = department;
-   }
+     public SalaryEmployee(double annualRate, string name, int payPeroidLength):base (name, payPeroidLength){
+        _annualRate = annualRate;
+    }
 }
