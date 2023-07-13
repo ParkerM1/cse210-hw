@@ -51,7 +51,7 @@ class Program
                             if ((rent_choice == item.GetModel()) & (item.GetAvailable() == "Yes")){
                                 RentalSystem rentalSystem = new RentalSystem();
                                 int length = rentalSystem.GetInterger(rent_choice);
-                                int price = rentalSystem.Price_of_rental(item, length); 
+                                int price = rentalSystem.PriceOfRental(item, length); 
                                 Console.WriteLine($"To rent the {rent_choice} for {length} days it will cost ${price}");
                                 Console.Write("Would you like to rent the vehicle (yes or no)? ");
                                 string to_rent = Console.ReadLine();

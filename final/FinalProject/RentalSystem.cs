@@ -4,7 +4,7 @@ class RentalSystem {
         
     }
 
-    public int Price_of_rental(Vehicle item, int how_long){
+    public int PriceOfRental(Vehicle item, int how_long){
         int price = item.GetPrice() * how_long;
         return price;
     }    
